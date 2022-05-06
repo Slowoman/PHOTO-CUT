@@ -1,0 +1,46 @@
+<!--<!doctype html>-->
+{% extends '../userBase.html'%} 
+{% block title %}关注列表{% endblock %}	  
+{% block navigation %}                   
+	<li  class="breadcrumb-item active" aria-current="page"><a href="#">关注列表</a></li>
+{% endblock %}
+{% block content %}
+<!--中部：右边管理内容 -->
+
+<table class="table table-striped">
+	<thead>
+		
+		<tr scope="row">
+
+							<th>创建时间</th>
+			
+			<th>关注</th>
+
+		</tr>
+              </thead>						 
+	<tbody>
+        	{% for item in page%}
+          	<tr>
+
+            		         
+           					<td>{{item.CreatedTime}}</td>
+
+			<td>{{item.MemberId}}</td>
+
+		<td><a onclick="return confirm('确认要删除？')"  class="btn btn-danger input-sm" href="{% url 'membercenterfocusondelete' %}?did={{item.id}}">删除</a>
+
+</td>
+                
+        	</tr>
+        	{% endfor %}
+	</tbody>
+</table>
+	<!-- 页码导航 开始 -->
+	<nav aria-label="...">
+		<ul class="pagination justify-content-center"">
+			{{pageInfo|safe }}
+		</ul>
+	</nav>
+	<!--  页码导航 结束  -->
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '../public/base.html'%} 
+{% block title %}预览图片信息{% endblock %}
+{% block navigation %}  
+	<ol class="breadcrumb">
+
+                <li><a href="{% url 'imageinformationindex' %}">图片信息列表</a></li>
+            
+		<li class="breadcrumb-item active" aria-current="page">预览图片信息</a></li>
+	</ol>
+{% endblock %} 	  
+{% block content %}
+<div align="center" style="width: 500px;position: relative;top: 0px;left:0px;">
+        <div class="form-group">
+          		<div class ="row align-items-left mt-2">			<div class ="col">创建时间:{{curEntryObject.CreatedTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">更新时间:{{curEntryObject.UpdateTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">图片类型:{{curEntryObject.ImageTypeId}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">标题:{{curEntryObject.Name}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">作品描述:{{curEntryObject.WorkDescription}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">图片链接:
+            {%for image in ImageLinks%}
+            <img src= "{{ request.scheme }}://{{ request.get_host }}/ImageRecommendationSystem/upload/{{image}}">
+            {%endfor%}
+            </div>
+
+            </div>
+		<div class ="row align-items-left mt-2">			<div class ="col">作者:{{curEntryObject.MemberId}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">标签:{{curEntryObject.ImageTags}}</div>
+</div>
+
+        </div>
+</div>
+{% endblock%}

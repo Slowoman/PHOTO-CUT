@@ -1,0 +1,25 @@
+{% extends '../public/base.html'%} 
+{% block title %}预览图片标签{% endblock %}
+{% block navigation %}  
+	<ol class="breadcrumb">
+
+                <li><a href="{% url 'imagetagsindex' %}">图片标签列表</a></li>
+            
+		<li class="breadcrumb-item active" aria-current="page">预览图片标签</a></li>
+	</ol>
+{% endblock %} 	  
+{% block content %}
+<div align="center" style="width: 500px;position: relative;top: 0px;left:0px;">
+        <div class="form-group">
+          		<div class ="row align-items-left mt-2">			<div class ="col">创建时间:{{curEntryObject.CreatedTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">更新时间:{{curEntryObject.UpdateTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">图片:{{curEntryObject.ImageInformationId}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">标签:{{curEntryObject.ImageTagInfo}}</div>
+</div>
+
+        </div>
+</div>
+{% endblock%}

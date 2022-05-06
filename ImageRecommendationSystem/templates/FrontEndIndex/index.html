@@ -1,0 +1,59 @@
+<!--<!doctype html>-->
+{% extends '../FrontEnd/base.html'%} 
+{% block title %}图片推荐系统{% endblock %}	 
+{% block pageMiddle %}
+   <br>
+
+
+	<br>
+	<!-- 搜索商单框 开始 --> 
+	<div class= "container-fluid">
+		<div class="row mt-1">	
+			<div class = "col-10"> 		  
+				
+			</div>
+			<div class = "col-2"> 
+				
+			</div>
+ 		</div>
+	</div>	
+	<!-- 搜索商单框 结束 -->
+	<br>
+	<div class= "container-fluid">
+	<div class="row  mt-1 justify-content-center">
+	  	{% for item in ImageInformationList %}
+
+				  	<div class="card-img-top " style="width: 18rem;">
+					  <div class="card">
+					  	<a class="nav-link" href ="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">
+					  <img class="card-img-top"  src="/ImageRecommendationSystem/upload/{{item.ImageLink}}" alt="{{item.Name}}" style = "width: 100%;height: 100%;"></a>
+					</div>
+					  
+					</div>
+					{% endfor %}
+
+			
+		</div>          
+        <div class = "row card-title justify-content-center"><a href = "{% url 'foregrounddisplayinfoimageinformationkeywordsearch' %}?normalSearch=''&viewAll=y">全部照片</a></div>		    
+		   <div class = "col-0">	
+				<!-- 图片信息列表 开始-->
+				<div class = "row card-title justify-content-center">推荐照片:</div>
+				<div class="row  mt-1 justify-content-center">
+	  	{% for item in getImageInformationRecommendList %}
+
+				  	<div class="card-img-top " style="width: 18rem;">
+					  <div class="card"><a class="nav-link" href ="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">
+					  <img class="card-img-top"  src="/ImageRecommendationSystem/upload/{{item.ImageLink}}" alt="{{item.Name}}" style = "width: 100%;height: 100%;"></a>
+					</div>
+					  
+					  
+					</div>
+					{% endfor %}
+		</div> 
+				<!-- 图片信息列表 结束-->
+			</div>     
+	
+
+</div>	
+{% endblock %}
+	
