@@ -1,0 +1,42 @@
+<!--<!doctype html>-->
+{% extends '../FrontEnd/base.html'%} 
+	 
+{% block pageMiddle %}
+	<!-- 中部内容 开始 -->
+	<div class ="container-fluid"> 
+		<div class ="row"> 
+			<div class ="col-2">
+			<!-- 左边菜单 开始 -->
+            			<ul class="nav flex-column ">
+                			 <li class="nav-item">
+                        <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/Member/edit/?eid={{request.session.frontusernameid}}">会员</a>
+                    </li>
+            
+ <li class="nav-item">
+                        <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/FocusOn/search/?FanId={{request.session.frontusernameid}}">关注</a>
+                    </li>
+            
+ <li class="nav-item">
+                        <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/ImageInformation/search/?MemberId={{request.session.frontusernameid}}">图片信息</a>
+                    </li>
+            
+
+            			</ul>
+			</div>
+		<!-- 左边菜单 结束 -->
+		
+		<!--右边内容  开始 -->
+			<div class ="col">
+				<nav aria-label="breadcrumb">
+				      <ol class="breadcrumb">
+					{% block navigation %}  {% endblock %}						
+				      </ol>
+			              </nav>
+				{% block content %}{% endblock %}				
+			</div>
+		<!-- 右边内容 结束 -->
+		</div>
+	</div>	
+	<!-- 中部内容 结束 -->	
+{% endblock %}
+

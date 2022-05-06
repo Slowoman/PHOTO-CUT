@@ -1,0 +1,48 @@
+<!--<!doctype html>-->
+{% extends '../../FrontEnd/pageBase.html'%} 
+{% block title %}图片信息列表{% endblock %}	  
+{% block navigation %}                	
+	<li class="breadcrumb-item"><a href="ImageRecommendationSystem/FrontEnd/index">首页</a></li>
+	<li class="breadcrumb-item active" aria-current="page">图片信息列表</a></li>	
+{% endblock %}
+{% block content %}
+					<form class="form-inline my-2  justify-content-center mt-1 mb-2">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+						<button class="btn  btn-primary my-2 my-sm-0" type="submit">Search</button>
+					</form>
+					<table class="table table-striped">
+						  <thead>
+							<tr>
+											<th>图片类型</th>
+			<th>标题</th>
+			<th>作品描述</th>
+			<th>图片链接</th>
+			<th>作者</th>
+	
+							</tr>
+						  </thead>
+						  <tbody>
+					 	{% for item in page%}  
+          							<tr>         
+           											<td>{{item.ImageTypeId}}</td>
+			<td>{{item.Name}}</td>
+			<td>{{item.WorkDescription}}</td>
+			<td>{{item.ImageLink}}</td>
+			<td>{{item.MemberId}}</td>
+  
+          								<td>
+									<a class="btn btn-info input-sm" href="{% url 'foregrounddisplayinfoimageinformationdetail' %}?eid={{item.id}}">详情</a>	
+            								</td>                
+        							</tr>
+        						{% endfor %}	
+						  </tbody>
+					</table>
+					<!-- 页码导航 开始 -->
+					<nav aria-label="...">
+					  <ul class="pagination justify-content-center"">
+						{{pageInfo|safe }}
+					  </ul>
+					</nav>
+					<!--  页码导航 结束  -->
+					<br>
+{% endblock %}

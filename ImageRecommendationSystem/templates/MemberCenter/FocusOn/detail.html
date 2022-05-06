@@ -1,0 +1,28 @@
+<!--<!doctype html>-->
+{% extends '../userBase.html'%} 
+{% block title %}关注{% endblock %}	  
+{% block navigation %}                   
+	<li class="breadcrumb-item"><a href="{% url 'membercenterfocusonsearch' %}?MemberId={{request.session.frontusernameid}}">关注列表</a></li>
+       	<li class="breadcrumb-item active" aria-current="page">详情</li>
+{% endblock %}
+{% block content %}
+<!-- 标题开始 -->
+<h1 class="mt-3 mb-4">关注</h1>
+<!-- 标题结束 -->
+<!-- 内容项目开始 -->
+          		<div class ="row align-items-left mt-2">			<div class ="col">创建时间:{{curEntryObject.CreatedTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">更新时间:{{curEntryObject.UpdateTime}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">用户:{{curEntryObject.MemberId}}</div>
+</div>
+		<div class ="row align-items-left mt-2">			<div class ="col">粉丝:{{curEntryObject.FanId}}</div>
+</div>
+
+    <!-- 互动按钮 开始 -->
+    <div class ="row">
+	
+    </div>
+    <!-- 互动按钮 结束 -->
+<!-- 内容项目结束 -->
+{% endblock %}
