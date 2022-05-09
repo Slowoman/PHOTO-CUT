@@ -1,38 +1,27 @@
 <!--<!doctype html>-->
 {% extends '../public/base.html'%} 
-{% block title %}浏览记录列表{% endblock %}	  
+{% block title %}PHOTO CUT{% endblock %}
 {% block navigation %}                   
 	<ol class="breadcrumb">
-		<li class="active"><a href="#">浏览记录列表</a></li>
+		<li class="active"><a href="#">View history list</a></li>
 	</ol>
 {% endblock %}
 {% block content %}
 <!--中部：右边管理内容 -->
 <div style="width: 99%;;margin:30px;">
-    <h3 align="center">浏览记录列表</h3>
+    <h3 align="center">View history list</h3>
  <!-- 查询表单-->
   <div class ="contaier mb-5">          
             <div class ="row"> 
                 <form  method="get" action=""  name = "searchForm" id = "searchForm">
-		
-                   
-                
- 
+
   <!-- 内容操作按钮-->
         <div class ="contaier">          
             <div class ="row"> 
             		<div style="float: left">
                 		<ul class='myul'>
-				
-               
-                                
-                       
+
                                 <li><a href=" {% url 'browsinghistoryadd' %}" class="btn btn-info input-sm">添加</a></li>
-
-                                
-
-                                                             
-
             
                 		</ul>
             		</div>
