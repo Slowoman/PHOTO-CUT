@@ -1,120 +1,102 @@
-{% extends '../userBase.html'%} 
-{% block title %}增加图片信息 {% endblock %}	 
-{% block navigation %}  
-	<li class="breadcrumb-item"><a href="{% url 'membercenterimageinformationsearch' %}?MemberId={{request.session.frontusernameid}}">图片信息列表</a></li>
-	<li class="breadcrumb-item active" aria-current="page"><a href="#">增加图片信息</a></li>
-{% endblock %} 
+{% extends '../userBase.html'%}
+{% block title %}PHOTOCUT {% endblock %}
+{% block navigation %}
+<li class="breadcrumb-item"><a
+        href="{% url 'membercenterimageinformationsearch' %}?MemberId={{request.session.frontusernameid}}">Photolist</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page"><a href="#">Addphoto</a></li>
+{% endblock %}
 {% block content %}
-   	<form  class="form-horizontal" id="form1">
-	{% csrf_token %}
-	<p class="text-danger" id ="errorMessage">{{message.errorMessage}}</p>
-        <div class="form-group">
-	
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageTypeId" >图片类型</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <select class="form-control"   name="ImageTypeId" id="ImageTypeId">
-                                                                        
-                                                                        {% for item in ImageType%}
-                                                                            <option  value="{{item.id}}"  >{{ item.Name}}</option>
-                                                                        {% endfor %}
-                                                                        </select> 
-                                                                     </div>
-                                            			
-    
-                                                         </div>
-                                                                   </div>
-        
-    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name" >标题</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Name" id="Name"  value=""  maxlength = "200" placeholder="请输入标题" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WorkDescription" >作品描述</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <textarea type="text" class="form-control"   name="WorkDescription" id="WorkDescription"  style="resize:none" maxlength = "10000" placeholder="请输入作品描述" ></textarea>
-                                                                     </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                   
-                                        
-            
-    
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                    			                     
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageLink" >图片链接</label></div>
-             			                     
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="file"  multiple="multiple"   class="form-control" name="ImageLink" id="ImageLink"   maxlength = "20000" placeholder="请输入图片链接"  />
-                                                                     </div>
-                                			            
-    
-                                                         </div>
-                                                                   </div>
-                                                                                                                <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                                     
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageTags" >标签</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <textarea type="text" class="form-control"   name="ImageTags" id="ImageTags"  style="resize:none" maxlength = "5000" placeholder="请输入标签" ></textarea>
-                                                                     </div>
-                                                        
-    
-                                                         </div>
-                                                                   </div>
-                   
-        
-    
-        <input type="hidden" name="MemberId" id="MemberId" value="{{request.session.frontusernameid}}" />    
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
- 	<div class="form-group row">
-    		<div class="col-sm-4 offset-8">
-        			<button class="btn btn-primary" type="button" onclick="saveCurData('/ImageRecommendationSystem/MemberCenter/ImageInformation/save_add/')" id ="postData">确认</button>
-			<button class="btn btn-warning" type="button" >取消</button>
-    		</div>
-  	</div>
+<form class="form-horizontal" id="form1">
+    {% csrf_token %}
+    <p class="text-danger" id="errorMessage">{{message.errorMessage}}</p>
+    <div class="form-group">
+        <div class="contaier">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageTypeId">Type</label></div>
+
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                    <select class="form-control" name="ImageTypeId" id="ImageTypeId">
+                        {% for item in ImageType%}
+                        <option value="{{item.id}}">{{ item.Name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
         </div>
-    </form>
 
-<script type="text/javascript" >
+        <div class="contaier">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name">Title</label></div>
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                    <input type="text" class="form-control" name="Name" id="Name" value="" maxlength="200"
+                           placeholder="Input title">
+                </div>
+            </div>
+        </div>
+
+        <div class="contaier">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WorkDescription">Detail</label></div>
+
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                    <textarea type="text" class="form-control" name="WorkDescription" id="WorkDescription"
+                              style="resize:none" maxlength="10000" placeholder="Input detail"></textarea>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="contaier">
+            <div class="row">
+
+
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageLink">Link</label></div>
+
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                    <input type="file" multiple="multiple" class="form-control" name="ImageLink" id="ImageLink"
+                           maxlength="20000" placeholder="请输入图片链接"/>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="contaier">
+            <div class="row">
+
+
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="ImageTags">Tag</label></div>
+
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                    <textarea type="text" class="form-control" name="ImageTags" id="ImageTags" style="resize:none"
+                              maxlength="5000" placeholder="Input tag"></textarea>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <input type="hidden" name="MemberId" id="MemberId" value="{{request.session.frontusernameid}}"/>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="form-group row">
+                <div class="col-sm-4 offset-8">
+                    <button class="btn btn-primary" type="button"
+                            onclick="saveCurData('/ImageRecommendationSystem/MemberCenter/ImageInformation/save_add/')"
+                            id="postData">Sure
+                    </button>
+                    <button class="btn btn-warning" type="button">Cancle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
 var checkObjectList = []
 
 var checkInfo =  new CheckInfo("ImageTypeId","图片类型","",11,true,"");
@@ -135,5 +117,6 @@ checkObjectList.push(checkInfo)
 var checkInfo =  new CheckInfo("MemberId","作者","",11,true,"");
 checkObjectList.push(checkInfo)         
             
+
 </script>
 {% endblock%}

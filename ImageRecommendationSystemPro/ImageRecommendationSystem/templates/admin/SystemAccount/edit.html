@@ -1,110 +1,78 @@
-{% extends '../public/base.html'%} 
-{% block title %}修改系统账户{% endblock %}
-{% block navigation %}  
-	<ol class="breadcrumb">
-		
-
-                    <li class="breadcrumb-item"><a href="{% url 'systemaccountindex' %}">系统账户列表</a></li>
-                    
-		<li class="breadcrumb-item active" aria-current="page">修改系统账户</li>
-	</ol>
-{% endblock %} 	  
+{% extends '../public/base.html'%}
+{% block title %}PHOTOCUT{% endblock %}
+{% block navigation %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'systemaccountindex' %}">Adminlist</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Modifyadmin</li>
+</ol>
+{% endblock %}
 {% block content %}
 <div align="center" style="width: 99%;position: relative;top: 0px;left:0px;">
-   	<form  class="form-horizontal" id="form1">
-	{% csrf_token %}
-	<p class="text-danger" id ="errorMessage">{{message.errorMessage}}</p>
+    <form class="form-horizontal" id="form1">
+        {% csrf_token %}
+        <p class="text-danger" id="errorMessage">{{message.errorMessage}}</p>
         <input type="hidden" name="curObject_id" value="{{systemaccount.id}}"/>
         <div class="form-group">
-          
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name" >名称</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Name" id="Name"  value="{{systemaccount.Name}}"  maxlength = "200" placeholder="请输入名称" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="SystemRoleId" >角色</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="SystemRoleId" id="SystemRoleId"  value="{{systemaccount.SystemRoleId}}"  maxlength = "11" placeholder="请输入角色" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Password" >密码</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Password" id="Password"  value="{{systemaccount.Password}}"  maxlength = "200" placeholder="请输入密码" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-            
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-				
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="CanUsed" >启用</label></div>
-            
-             <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                  <select class="form-control"   name="CanUsed" id = "CanUsed">
-                    
-                    
-            <option  value="2"  {% if  '2' == systemaccount.CanUsed %} selected {% endif %} >使用</option>
-            
-            <option  value="3"  {% if  '3' == systemaccount.CanUsed %} selected {% endif %} >禁用</option>
-            
-                </select> 
-             </div>
-			
-    
-                                                         </div>
-                                                                   </div>
-        
-            
-            
+
+            <div class="contaier">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name">Admin</label></div>
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="Name" id="Name" value="{{systemaccount.Name}}"
+                               maxlength="200" placeholder="Admin name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="contaier">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Password">Password</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="Password" id="Password"
+                               value="{{systemaccount.Password}}" maxlength="200" placeholder="Admin password">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="contaier">
+                <div class="row">
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="CanUsed">Lock</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <select class="form-control" name="CanUsed" id="CanUsed">
+
+
+                            <option value="2" {% if '2' == systemaccount.CanUsed %} selected {% endif %} >No</option>
+
+                            <option value="3" {% if '3' == systemaccount.CanUsed %} selected {% endif %} >Yes</option>
+
+                        </select>
+                    </div>
+
+
+                </div>
+            </div>
+
+
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-	
-                    <button class="btn btn-primary" type="button" onclick="saveCurData('/ImageRecommendationSystem/admin/SystemAccount/save_edit/')" id ="postData">确认</button>
-                
+
+                <button class="btn btn-primary" type="button"
+                        onclick="saveCurData('/ImageRecommendationSystem/admin/SystemAccount/save_edit/')"
+                        id="postData">Sure
+                </button>
+
             </div>
         </div>
     </form>
 </div>
 
-<script type="text/javascript" >
+<script type="text/javascript">
 var checkObjectList = []
 
 var checkInfo =  new CheckInfo("Name","名称","",200,false,"");
@@ -119,6 +87,7 @@ checkObjectList.push(checkInfo)
 var checkInfo =  new CheckInfo("CanUsed","启用","",20,true,"");
 checkObjectList.push(checkInfo)           
             
+
 
 </script>
 {% endblock%}

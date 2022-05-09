@@ -1,46 +1,48 @@
 <!--<!doctype html>-->
-{% extends '../userBase.html'%} 
-{% block title %}关注列表{% endblock %}	  
-{% block navigation %}                   
-	<li  class="breadcrumb-item active" aria-current="page"><a href="#">关注列表</a></li>
+{% extends '../userBase.html'%}
+{% block title %}PHOTOCUT{% endblock %}
+{% block navigation %}
+<li class="breadcrumb-item active" aria-current="page"><a href="#">Followlist</a></li>
 {% endblock %}
 {% block content %}
 <!--中部：右边管理内容 -->
 
 <table class="table table-striped">
-	<thead>
-		
-		<tr scope="row">
+    <thead>
 
-							<th>创建时间</th>
-			
-			<th>关注</th>
+    <tr scope="row">
 
-		</tr>
-              </thead>						 
-	<tbody>
-        	{% for item in page%}
-          	<tr>
+        <th>Createtime</th>
 
-            		         
-           					<td>{{item.CreatedTime}}</td>
+        <th>Follow</th>
 
-			<td>{{item.MemberId}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page%}
+    <tr>
 
-		<td><a onclick="return confirm('确认要删除？')"  class="btn btn-danger input-sm" href="{% url 'membercenterfocusondelete' %}?did={{item.id}}">删除</a>
 
-</td>
-                
-        	</tr>
-        	{% endfor %}
-	</tbody>
+        <td>{{item.CreatedTime}}</td>
+
+        <td>{{item.MemberId}}</td>
+
+        <td><a onclick="return confirm('Sure to delete？')" class="btn btn-danger input-sm"
+               href="{% url 'membercenterfocusondelete' %}?did={{item.id}}">Delete</a>
+
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
 </table>
-	<!-- 页码导航 开始 -->
-	<nav aria-label="...">
-		<ul class="pagination justify-content-center"">
-			{{pageInfo|safe }}
-		</ul>
-	</nav>
-	<!--  页码导航 结束  -->
+<!-- 页码导航 开始 -->
+<nav aria-label="...">
+    <ul class="pagination justify-content-center"
+    ">
+    {{pageInfo|safe }}
+    </ul>
+</nav>
+<!--  页码导航 结束  -->
 
 {% endblock %}

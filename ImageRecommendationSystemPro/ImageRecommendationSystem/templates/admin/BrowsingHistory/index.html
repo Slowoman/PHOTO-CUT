@@ -1,39 +1,25 @@
 <!--<!doctype html>-->
 {% extends '../public/base.html'%} 
-{% block title %}浏览记录列表{% endblock %}	  
+{% block title %}Viewhistory{% endblock %}
 {% block navigation %}                   
 	<ol class="breadcrumb">
-		<li class="active"><a href="#">浏览记录列表</a></li>
+		<li class="active"><a href="#">Viewhistory</a></li>
 	</ol>
 {% endblock %}
 {% block content %}
 <!--中部：右边管理内容 -->
 <div style="width: 99%;;margin:30px;">
-    <h3 align="center">浏览记录列表</h3>
+    <h3 align>Viewhistory</h3>
  <!-- 查询表单-->
   <div class ="contaier mb-5">          
             <div class ="row"> 
                 <form  method="get" action=""  name = "searchForm" id = "searchForm">
-		
-                   
-                
- 
   <!-- 内容操作按钮-->
         <div class ="contaier">          
             <div class ="row"> 
             		<div style="float: left">
                 		<ul class='myul'>
-				
-               
-                                
-                       
-                                <li><a href=" {% url 'browsinghistoryadd' %}" class="btn btn-info input-sm">添加</a></li>
-
-                                
-
-                                                             
-
-            
+							<li><a href=" {% url 'browsinghistoryadd' %}" class="btn btn-info input-sm">Add</a></li>
                 		</ul>
             		</div>
             </div>
@@ -43,29 +29,24 @@
             <div class ="row">               
     	<table class = "table table-bordered table-hover table-striped tablesorter"  id="tableSort">
 	           <thead title="点击排序">	
-        		<tr>	
-			
-            						<th >创建时间</th>
-			<th  data-type="num" >图片</th>
-			<th  data-type="num" >用户</th>
-
-        			<th>操作</th>
+        		<tr>
+					<th >Createtime</th>
+			<th  data-type="num" >Photo</th>
+			<th  data-type="num" >User</th>
+        			<th>Control</th>
 		</tr>
             		</thead>
     		<tbody>
         		{% for item in page%}
 		<tr>
-            				
-           							<td>{{item.CreatedTime}}</td>
+
+			<td>{{item.CreatedTime}}</td>
 			<td>{{item.ImageInformationId}}</td>
 			<td>{{item.MemberId}}</td>
-
             			<td>
-				
-               
-                                <a onclick="return confirm('确认要删除？')"  class="btn btn-danger input-sm" href="{% url 'browsinghistorydelete' %}?did={{item.id}}">删除</a>
-                                <a class="btn btn-info input-sm" href="{% url 'browsinghistoryedit' %}?eid={{item.id}}">修改</a>
-                                <a class="btn btn-info input-sm" href="{% url 'browsinghistorydetail' %}?eid={{item.id}}">预览</a>
+                                <a onclick="return confirm('Sure to delete？')"  class="btn btn-danger input-sm" href="{% url 'browsinghistorydelete' %}?did={{item.id}}">Delete</a>
+                                <a class="btn btn-info input-sm" href="{% url 'browsinghistoryedit' %}?eid={{item.id}}">Modify</a>
+                                <a class="btn btn-info input-sm" href="{% url 'browsinghistorydetail' %}?eid={{item.id}}">View</a>
             
             			</td>                    
         		</tr>

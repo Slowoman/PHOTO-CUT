@@ -1,61 +1,61 @@
 <!--<!doctype html>-->
-{% extends '../public/base.html'%} 
+{% extends '../public/base.html'%}
 
-{% block title %}图片点击统计{% endblock %}	  
- {% block Statistics %}
-        <script src="https://cdn.bootcss.com/echarts/3.7.1/echarts.min.js"></script>
-      <!-- 
-        <script  type="text/javascript"  src="/static/js/echarts.min.js"></script>
-      -->
- {% endblock %}                   
-{% block navigation %}  
-	<ol class="breadcrumb">
+{% block title %}PHOTOCUT{% endblock %}
+{% block Statistics %}
+<script src="https://cdn.bootcss.com/echarts/3.7.1/echarts.min.js"></script>
+<!--
+  <script  type="text/javascript"  src="/static/js/echarts.min.js"></script>
+-->
+{% endblock %}
+{% block navigation %}
+<ol class="breadcrumb">
 
-		<li><a href="{% url 'index' %}">首页</a></li>
+    <li><a href="{% url 'index' %}">Back</a></li>
 
-		<li class="active"><a href="#">图片点击统计</a></li>
-	</ol>
-{% endblock %} 	
+    <li class="active"><a href="#">Picture click statistics</a></li>
+</ol>
+{% endblock %}
 
 {% block content %}
 <!--中部：右边管理内容 -->
-	<div style="width: 80%;">
-	 	 
+<div style="width: 80%;">
+
     <table class="table" style="table-layout: fixed;">
         <div>
 
             <div style="float: left">
-                <form  method="get" action="" >
-                    
-           <div class="form-group">
-          
-		    <div class ="contaier">
-			<div class ="row">
-			
-		               </div>
-		  </div> 
-		    <div class ="contaier">
-			<div class ="row">
-			 
-			</div>
-		   </div>	
+                <form method="get" action="">
+
+                    <div class="form-group">
+
+                        <div class="contaier">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                        <div class="contaier">
+                            <div class="row">
+
+                            </div>
+                        </div>
 
 
-            <input type="submit" value="查询数据" name="submit" class="btn btn-primary input-sm"/>
+                        <input type="submit" value="Search" name="submit" class="btn btn-primary input-sm"/>
                 </form>
             </div>
         </div>
 
-    </table> 
-    <!-- 总体数据 -->  
-<div class="row">
+    </table>
+    <!-- 总体数据 -->
+    <div class="row">
+
+    </div>
+    <!-- 单项数据图标 -->
+    <div id="curEchart" style="width:800px;height: 400px;margin-top: 20px;"></div>
 
 </div>
-    <!-- 单项数据图标 -->
-	<div id="curEchart" style="width:800px;height: 400px;margin-top: 20px;"></div>
-
-	</div>
- <script type="text/javascript">
+<script type="text/javascript">
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('curEchart'));
@@ -63,7 +63,7 @@
         // 指定图表的配置项和数据
 var option = {
   title: {
-    text: '图片点击统计'
+    text: 'Picture click statistics'
   },
   tooltip: {
     trigger: 'axis'
@@ -98,10 +98,11 @@ var option = {
         myChart.setOption(option);
 
 
-    </script>
 
- <script>
-      
-  </script>
+</script>
+
+<script>
+
+</script>
 
 {% endblock %}

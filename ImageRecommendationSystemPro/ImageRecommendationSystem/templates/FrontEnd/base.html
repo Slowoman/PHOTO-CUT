@@ -41,19 +41,19 @@
 
 		<ul class="navbar-nav mr-auto">
 		  <li class="nav-item active">
-			<a class="nav-link" href="/ImageRecommendationSystem/FrontEndIndex/">照片浏览网站 </a>
+			<a class="nav-link" href="/ImageRecommendationSystem/FrontEndIndex/">PHOTO CUT </a>
 		  </li>
       <li class="nav-item active">
-      <a class="nav-link" href="/ImageRecommendationSystem/FrontEndIndex/">主页</a>
+      <a class="nav-link" href="/ImageRecommendationSystem/FrontEndIndex/">Homepage</a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/index/">个人中心 </a>
+      <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/index/">Personal information </a>
       </li>
 			<li class="nav-item active">
-      <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/ImageInformation/add/">上传我的 </a>
+      <a class="nav-link" href="/ImageRecommendationSystem/MemberCenter/ImageInformation/add/">Upload </a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="/ImageRecommendationSystem/admin/Login/index/">后台管理 </a>
+      <a class="nav-link" href="/ImageRecommendationSystem/admin/Login/index/">Admin </a>
       </li>
 
         
@@ -65,12 +65,12 @@
     {% if request.session.frontusername %}  
     <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a href = "{% url 'membercenterindex' %}" >用户中心&nbsp;&nbsp;    </a> 
+            <a href = "{% url 'membercenterindex' %}" >User&nbsp;&nbsp;    </a>
           </li>
             
                         
           <li class="nav-item">
-            <a href = "{% url 'frontendindexlogout' %}" >注销</a>
+            <a href = "{% url 'frontendindexlogout' %}" >Quit</a>
           </li>
 
         </ul>        
@@ -78,10 +78,10 @@
     {% else %} 
     <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-        <a class="nav-link" href="/ImageRecommendationSystem/FrontEnd/Member/add/">注册</a>
+        <a class="nav-link" href="/ImageRecommendationSystem/FrontEnd/Member/add/">Register</a>
       </li>
       <li class="nav-item active">
-        <a class="dropdown-item" href="/ImageRecommendationSystem/MemberCenter/login/">登录</a>
+        <a class="dropdown-item" href="/ImageRecommendationSystem/MemberCenter/login/">Login</a>
       </li>
       
     </ul>
@@ -95,8 +95,8 @@
                     </nav>
           <form class="form-inline my-2  justify-content-center mt-1 mb-2"  action = "{% url 'foregrounddisplayinfoimageinformationkeywordsearch' %}">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id ="keyword" name ="keyword">
-          <button class="btn  btn-primary my-2 my-sm-0 mr-3" type="submit" name = "normalSearch" id = "normalSearch">搜索</button>
-           <button class="btn btn-primary my-2 my-sm-0" type="submit" name = "typeSearch" id = "typeSearch">分类搜索</button>
+          <button class="btn  btn-primary my-2 my-sm-0 mr-3" type="submit" name = "normalSearch" id = "normalSearch">Search</button>
+           <button class="btn btn-primary my-2 my-sm-0" type="submit" name = "typeSearch" id = "typeSearch">Type search</button>
         </form> 
      <!-- 顶部菜单 结束-->
     <!-- 中部内容 开始 -->

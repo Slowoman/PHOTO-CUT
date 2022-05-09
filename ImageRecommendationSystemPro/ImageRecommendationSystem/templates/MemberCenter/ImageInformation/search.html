@@ -1,50 +1,50 @@
 <!--<!doctype html>-->
-{% extends '../userBase.html'%} 
-{% block title %}图片信息列表{% endblock %}	  
-{% block navigation %}                   
-	<li  class="breadcrumb-item active" aria-current="page"><a href="#">图片信息列表</a></li>
+{% extends '../userBase.html'%}
+{% block title %}PHOTO CUT{% endblock %}
+{% block navigation %}
+<li class="breadcrumb-item active" aria-current="page"><a href="#">Photolist</a></li>
 {% endblock %}
 {% block content %}
 <!--中部：右边管理内容 -->
 
 <table class="table table-striped">
-	<thead>
-		<tr> <td> <button type="button" class="btn btn-primary">
-			<a href=" {% url 'membercenterimageinformationadd' %}">添加</a></button></td></tr>
-		<tr scope="row">
+    <thead>
+    <tr>
+        <td>
+            <button type="button" class="btn">
+                <a href=" {% url 'membercenterimageinformationadd' %}">Add</a></button>
+        </td>
+    </tr>
+    <tr scope="row">
 
-							<th>图片类型</th>
-			<th>标题</th>
-			<th>作品描述</th>
-			
+        <th>Type</th>
+        <th>Title</th>
+        <th>Detail</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in page%}
+    <tr>
+        <td>{{item.ImageTypeId}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.WorkDescription}}</td>
+        <td><a onclick="return confirm('Sure to delete？')" class="btn btn-danger input-sm"
+               href="{% url 'membercenterimageinformationdelete' %}?did={{item.id}}">Delete</a>
+            <a class="btn btn-info input-sm" href="{% url 'membercenterimageinformationedit' %}?eid={{item.id}}">Modify</a>
 
-		</tr>
-              </thead>						 
-	<tbody>
-        	{% for item in page%}
-          	<tr>
+        </td>
 
-            		         
-           					<td>{{item.ImageTypeId}}</td>
-			<td>{{item.Name}}</td>
-			<td>{{item.WorkDescription}}</td>
-			
-
-		<td><a onclick="return confirm('确认要删除？')"  class="btn btn-danger input-sm" href="{% url 'membercenterimageinformationdelete' %}?did={{item.id}}">删除</a>
-<a class="btn btn-info input-sm" href="{% url 'membercenterimageinformationedit' %}?eid={{item.id}}">修改</a>
-<a class="btn btn-info input-sm" href="{% url 'membercenterimageinformationdetail' %}?eid={{item.id}}">预览</a>
-</td>
-                
-        	</tr>
-        	{% endfor %}
-	</tbody>
+    </tr>
+    {% endfor %}
+    </tbody>
 </table>
-	<!-- 页码导航 开始 -->
-	<nav aria-label="...">
-		<ul class="pagination justify-content-center"">
-			{{pageInfo|safe }}
-		</ul>
-	</nav>
-	<!--  页码导航 结束  -->
+<!-- 页码导航 开始 -->
+<nav aria-label="...">
+    <ul class="pagination justify-content-center"
+    ">
+    {{pageInfo|safe }}
+    </ul>
+</nav>
+<!--  页码导航 结束  -->
 
 {% endblock %}

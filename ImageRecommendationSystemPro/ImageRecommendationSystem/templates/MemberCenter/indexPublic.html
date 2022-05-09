@@ -1,95 +1,105 @@
 <!--<!doctype html>-->
-{% extends '../FrontEnd/pageBase.html'%} 
-{% block title %}图片信息{% endblock %}	  
-{% block navigation %}                   
+{% extends '../FrontEnd/pageBase.html'%}
+{% block title %}PHOTO CUT{% endblock %}
+{% block navigation %}
 
 {% endblock %}
 
 {% block content %}
-<div style = "width:100%;background:url(/ImageRecommendationSystem/upload/{{curEntryObject.WeChatAvatarPicture}});background-size: 100% 100%;background-repeat: no-repeat;height:300px; color:white">
+<div style="width:100%;background:url(/ImageRecommendationSystem/upload/{{curEntryObject.WeChatAvatarPicture}});background-size: 100% 100%;background-repeat: no-repeat;height:300px; color:white">
 
-<div class ="row">
-	<div class ="col-2 offset-5">
-		<img src="/ImageRecommendationSystem/upload/{{curEntryObject.WeChatAvatarPicture}}" class="card-img-top img-responsive center-block" style="border-radius:60%;width: 70%;height: 55%;text-align:center;vertical-align:middle;"  alt="...">
-	</div>
-</div>
-<div class ="row mt-3">
-	<div class ="col offset-5">
-		{{curEntryObject.Name}}
-	</div>
-</div>
-<div class ="row  mt-3">
-	<div class ="col offset-5">
-		{{curEntryObject.Area}}  | 关注：{{curEntryObject.FocusOnMemberIdCount}} | 粉丝： {{curEntryObject.FanIdCount}}
-	</div>
+    <div class="row">
+        <div class="col-2 offset-5">
+            <img src="/ImageRecommendationSystem/upload/{{curEntryObject.WeChatAvatarPicture}}"
+                 class="card-img-top img-responsive center-block"
+                 style="border-radius:60%;width: 70%;height: 55%;text-align:center;vertical-align:middle;" alt="...">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col offset-5">
+            {{curEntryObject.Name}}
+        </div>
+    </div>
+    <div class="row  mt-3">
+        <div class="col offset-5">
+            {{curEntryObject.Area}} | Follow：{{curEntryObject.FocusOnMemberIdCount}} | Following： {{curEntryObject.FanIdCount}}
+        </div>
 
-</div>
-<div class ="row  mt-3">
-	<div class ="col offset-5">
-		
-	</div>
-</div>
-<div class ="row  mt-3">
-	<div class ="col offset-5">
-		{{curEntryObject.Introduction}}  | 微信号：{{curEntryObject.WechatNickname}}
-	</div>
-</div>
-</div>
-<div style = "width:75%">
+    </div>
+    <div class="row  mt-3">
+        <div class="col offset-5">
 
-   <ul class="nav nav-tabs" id="myTab" role="tablist" >
-  <li class="nav-item" role="presentation">
-    <a class="nav-link  active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">代表作</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">资料</a>
-  </li>
- 
-</ul>
-<div class="tab-content" id="myTabContent" >
-  <div class="tab-pane fade  active" id="home" role="tabpanel" aria-labelledby="home-tab">
-  	<div class="row  mt-1">
-  	{% for item in ImageInformationList %}
-
-			  	<div class="card-img-top " style="width: 18rem;">
-					  <div class="card">
-					  	<a class="nav-link" href ="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">
-					  <img class="card-img-top"  src="/ImageRecommendationSystem/upload/{{item.ImageLink}}" alt="{{item.Name}}" style = "width: 100%;height: 100%;"></a>
-					</div>
-					  <div class="card-body">
-					    <h5 class="card-title">
-					    	<div class ="row">
-					    		<div class = "col">
-					    			<a class="nav-link" href ="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">{{item.Name}}</a>
-					    		</div>
-					    		
-					    	</div>
-					    </h5>
-					    
-					  </div>
-					  <ul class="list-group list-group-flush">
-					    <li class="list-group-item">{{item.ImageTypeId}}</li> 
-					  </ul>
-					</div>
-				{% endfor %}
-	</div>
-  </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-  	<div class="row  mt-1">
-  		正在来的路上....
-	</div>
-  </div>
- 
+        </div>
+    </div>
+    <div class="row  mt-3">
+        <div class="col offset-5">
+            {{curEntryObject.Introduction}} | {{curEntryObject.WechatNickname}}
+        </div>
+    </div>
 </div>
-    
-			      
-<script>
+<div style="width:75%">
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link  active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+               aria-selected="true">Photo</a>
+        </li>
+        <!--<!doctype ht
+        <li class="nav-item" role="presentation">
+            <a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+               aria-selected="false">资料</a>
+        </li>ml>-->
+
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade  active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row  mt-1">
+                {% for item in ImageInformationList %}
+
+                <div class="card-img-top " style="width: 18rem;">
+                    <div class="card">
+                        <a class="nav-link"
+                           href="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">
+                            <img class="card-img-top" src="/ImageRecommendationSystem/upload/{{item.ImageLink}}"
+                                 alt="{{item.Name}}" style="width: 100%;height: 100%;"></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <div class="row">
+                                <div class="col">
+                                    <a class="nav-link"
+                                       href="/ImageRecommendationSystem/ForegroundDisplayInfo/ImageInformation_detail/?eid={{item.id}}">{{item.Name}}</a>
+                                </div>
+
+                            </div>
+                        </h5>
+
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{item.ImageTypeId}}</li>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--<!doctype html>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row  mt-1">
+                正在来的路上....
+            </div>
+        </div>
+
+    </div>
+-->
+
+    <script>
 
 	window.onload = function() {
 	
      $("#home-tab").click();
 	};
 
-</script>
-{% endblock %}	 
+
+    </script>
+    {% endblock %}
 

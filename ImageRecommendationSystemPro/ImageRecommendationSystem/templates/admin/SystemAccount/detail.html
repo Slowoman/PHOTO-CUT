@@ -1,29 +1,33 @@
-{% extends '../public/base.html'%} 
-{% block title %}预览系统账户{% endblock %}
-{% block navigation %}  
-	<ol class="breadcrumb">
+{% extends '../public/base.html'%}
+{% block title %}PHOTOCUT{% endblock %}
+{% block navigation %}
+<ol class="breadcrumb">
 
-                <li><a href="{% url 'systemaccountindex' %}">系统账户列表</a></li>
-            
-		<li class="breadcrumb-item active" aria-current="page">预览系统账户</a></li>
-	</ol>
-{% endblock %} 	  
+    <li><a href="{% url 'systemaccountindex' %}">Adminlist</a></li>
+
+    <li class="breadcrumb-item active" aria-current="page">Viewadmin</a></li>
+</ol>
+{% endblock %}
 {% block content %}
-<div align="center" style="width: 500px;position: relative;top: 0px;left:0px;">
-        <div class="form-group">
-          		<div class ="row align-items-left mt-2">			<div class ="col">创建时间:{{curEntryObject.CreatedTime}}</div>
-</div>
-		<div class ="row align-items-left mt-2">			<div class ="col">更新时间:{{curEntryObject.UpdateTime}}</div>
-</div>
-		<div class ="row align-items-left mt-2">			<div class ="col">名称:{{curEntryObject.Name}}</div>
-</div>
-		<div class ="row align-items-left mt-2">			<div class ="col">角色:{{curEntryObject.SystemRoleId}}</div>
-</div>
-		<div class ="row align-items-left mt-2">			<div class ="col">密码:{{curEntryObject.Password}}</div>
-</div>
-		<div class ="row align-items-left mt-2">			<div class ="col">启用:{{curEntryObject.CanUsed}}</div>
-</div>
-
+<div align style="width: 500px;position: relative;top: 0px;left:0px;">
+    <div class="form-group">
+        <div class="row align-items-left mt-2">
+            <div class="col">Createtime:{{curEntryObject.CreatedTime}}</div>
         </div>
+        <div class="row align-items-left mt-2">
+            <div class="col">Updatetime:{{curEntryObject.UpdateTime}}</div>
+        </div>
+        <div class="row align-items-left mt-2">
+            <div class="col">Admin:{{curEntryObject.Name}}</div>
+        </div>
+
+        <div class="row align-items-left mt-2">
+            <div class="col">Password:{{curEntryObject.Password}}</div>
+        </div>
+        <div class="row align-items-left mt-2">
+            <div class="col">Lock:{{curEntryObject.CanUsed}}</div>
+        </div>
+
+    </div>
 </div>
 {% endblock%}

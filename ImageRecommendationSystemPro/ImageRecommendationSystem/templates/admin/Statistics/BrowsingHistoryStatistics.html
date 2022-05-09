@@ -1,91 +1,97 @@
 <!--<!doctype html>-->
-{% extends '../public/base.html'%} 
+{% extends '../public/base.html'%}
 
-{% block title %}图片点击统计{% endblock %}	  
- {% block Statistics %}
-        <script src="https://cdn.bootcss.com/echarts/3.7.1/echarts.min.js"></script>
-      <!-- 
-        <script  type="text/javascript"  src="/static/js/echarts.min.js"></script>
-      -->
- {% endblock %}                   
-{% block navigation %}  
-	<ol class="breadcrumb">
+{% block title %}Picture click statistics{% endblock %}
+{% block Statistics %}
+<script src="https://cdn.bootcss.com/echarts/3.7.1/echarts.min.js"></script>
+<!--
+  <script  type="text/javascript"  src="/static/js/echarts.min.js"></script>
+-->
+{% endblock %}
+{% block navigation %}
+<ol class="breadcrumb">
 
-		<li><a href="{% url 'index' %}">首页</a></li>
+    <li><a href="{% url 'index' %}">Back</a></li>
 
-		<li class="active"><a href="#">图片点击统计</a></li>
-	</ol>
-{% endblock %} 	
+    <li class="active"><a href="#">Picture click statistics</a></li>
+</ol>
+{% endblock %}
 
 {% block content %}
 <!--中部：右边管理内容 -->
-	<div style="width: 80%;">
-	 	 
+<div style="width: 80%;">
+
     <table class="table" style="table-layout: fixed;">
         <div>
 
             <div style="float: left">
-                <form  method="get" action="" >
-                    
-           <div class="form-group">
-          
-		    <div class ="contaier">
-			<div class ="row">
-			
-		               </div>
-		  </div> 
-		    <div class ="contaier">
-			<div class ="row">
-			 
-             <div class = "col-2"><label for="CreatedTime">创建时间范围</label></div>
-                <div class="col-sm-4">      
-                    <div class='input-group date' id='CreatedTimeStartDiv'>
-                        <input type='text' class="form-control"  name="CreatedTimeStart" id="CreatedTimeStart"  value="{{BrowsingHistory.CreatedTimeStart}}" maxlength = "20" placeholder="创建时间" />
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                <form method="get" action="">
+
+                    <div class="form-group">
+
+                        <div class="contaier">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                        <div class="contaier">
+                            <div class="row">
+
+                                <div class="col-2"><label for="CreatedTime">Time</label></div>
+                                <div class="col-sm-4">
+                                    <div class='input-group date' id='CreatedTimeStartDiv'>
+                                        <input type='text' class="form-control" name="CreatedTimeStart"
+                                               id="CreatedTimeStart" value="{{BrowsingHistory.CreatedTimeStart}}"
+                                               maxlength="20" placeholder="From"/>
+                                        <span class="input-group-addon"><span
+                                                class="glyphicon glyphicon-calendar"></span>
                        </span>
-                    </div>
-                </div>
-                <label >--</label>
-                <div class="col-sm-4">
-                    <div class='input-group date' id='CreatedTimeEndDiv'>
-                        <input type='text' class="form-control"  name="CreatedTimeEnd" id="CreatedTimeEnd"  value="{{BrowsingHistory.CreatedTimeEnd}}" maxlength = "20" placeholder="创建时间" />
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                </div>
+                                <label>--</label>
+                                <div class="col-sm-4">
+                                    <div class='input-group date' id='CreatedTimeEndDiv'>
+                                        <input type='text' class="form-control" name="CreatedTimeEnd"
+                                               id="CreatedTimeEnd" value="{{BrowsingHistory.CreatedTimeEnd}}"
+                                               maxlength="20" placeholder="To"/>
+                                        <span class="input-group-addon"><span
+                                                class="glyphicon glyphicon-calendar"></span>
                       </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
-                </div>
-             </div>
-
-        
-			</div>
-		   </div>	
 
 
-            <input type="submit" value="查询数据" name="submit" class="btn btn-primary input-sm"/>
+                    <input type="submit" value="Search" name="submit" class="btn btn-primary input-sm"/>
                 </form>
             </div>
         </div>
 
-    </table> 
-    <!-- 总体数据 -->  
-<div class="row">
-     
-  <div class="col-sm-3 ">
-    <div class="card border border-primary">
-      <div class="card-body">
-        <h5 class="card-title">点击数量</h5>
-        <p class="card-text">{{Summary.idCount}}</p>
-        
-      </div>
+    </table>
+    <!-- 总体数据 -->
+    <div class="row">
+
+        <div class="col-sm-3 ">
+            <div class="card border border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Click Times</h5>
+                    <p class="card-text">{{Summary.idCount}}</p>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-
-        
-</div>
     <!-- 单项数据图标 -->
-	<div id="curEchart" style="width:800px;height: 400px;margin-top: 20px;"></div>
+    <div id="curEchart" style="width:800px;height: 400px;margin-top: 20px;"></div>
 
-	
- <script type="text/javascript">
+
+    <script type="text/javascript">
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('curEchart'));
@@ -93,13 +99,13 @@
         // 指定图表的配置项和数据
 var option = {
   title: {
-    text: '图片点击统计'
+    text: 'Picture click statistics'
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['点击数量']
+    data: ['Click times']
   },
   grid: {
     left: '3%',
@@ -122,7 +128,7 @@ var option = {
   },
   series: [
             {
-      name: '热点数量',
+      name: 'Hot',
       type: 'line',
       stack: 'Total',
       data: {{DaySummary.idCountList|safe}}
@@ -134,16 +140,17 @@ var option = {
         myChart.setOption(option);
 
 
+
     </script>
-<div id="JobHistogram" style="width:800px;height: 400px;margin-top: 20px;"></div>
-<!--直方图 -->
-   <script type="text/javascript">
+    <div id="JobHistogram" style="width:800px;height: 400px;margin-top: 20px;"></div>
+    <!--直方图 -->
+    <script type="text/javascript">
     var JobHistogram = echarts.init(document.getElementById('JobHistogram'));
     var option;
 
 option = {
   title: {
-    text: '图片分类统计'
+    text: 'Type statistics'
   },
   xAxis: {
     type: 'category',
@@ -165,9 +172,10 @@ option = {
 };
 
     JobHistogram.setOption(option);  
-  </script>
+
+    </script>
 </div>
- <script>
+<script>
 
                   $(function () {
             $('#CreatedTimeStart').datetimepicker({
@@ -185,6 +193,7 @@ option = {
             });
           }); 
                 
-  </script>
+
+</script>
 
 {% endblock %}

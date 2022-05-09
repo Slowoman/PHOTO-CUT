@@ -1,273 +1,148 @@
-{% extends '../public/base.html'%} 
-{% block title %}增加用户 {% endblock %}	 
-{% block navigation %}  
-		<ol class="breadcrumb">
-			
+{% extends '../public/base.html'%}
+{% block title %}PHOTOCUT {% endblock %}
+{% block navigation %}
+<ol class="breadcrumb">
 
-                    <li class="breadcrumb-item"><a href="{% url 'memberindex' %}">用户列表</a></li>
-                    
-			<li class="breadcrumb-item active" aria-current="page">增加用户</li>
-		   </ol>
-{% endblock %} 
+
+    <li class="breadcrumb-item"><a href="{% url 'memberindex' %}">Userlist</a></li>
+
+    <li class="breadcrumb-item active" aria-current="page">Adduser</li>
+</ol>
+{% endblock %}
 {% block content %}
 <div align="center" style="width: 99%;position: relative;top: 0px;left:0px;">
-   	<form  class="form-horizontal" id="form1">
-	{% csrf_token %}
-	<p class="text-danger" id ="errorMessage">{{message.errorMessage}}</p>	
+    <form class="form-horizontal" id="form1">
+        {% csrf_token %}
+        <p class="text-danger" id="errorMessage">{{message.errorMessage}}</p>
         <div class="form-group">
-	
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name" >名称</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Name" id="Name"  value=""  maxlength = "100" placeholder="请输入名称" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="PhoneNumber" >手机号</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="PhoneNumber" id="PhoneNumber"  value=""  maxlength = "110" placeholder="请输入手机号" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WechatNickname" >微信号昵称</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="WechatNickname" id="WechatNickname"  value=""  maxlength = "200" placeholder="请输入微信号昵称" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-    
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                    			                     
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WeChatAvatarPicture" >微信头像图片</label></div>
-             			                     
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="file"   class="form-control" name="WeChatAvatarPicture" id="WeChatAvatarPicture"   maxlength = "1500" placeholder="请输入微信头像图片"  />
-                                                                     </div>
-                                			            
-    
-                                                         </div>
-                                                                   </div>
-        
-    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Password" >密码</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Password" id="Password"  value=""  maxlength = "200" placeholder="请输入密码" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="LastLoginTime" >最近登录时间</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="LastLoginTime" id="LastLoginTime"  value=""  maxlength = "200" placeholder="请输入最近登录时间" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Email" >E-mail</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Email" id="Email"  value=""  maxlength = "500" placeholder="请输入E-mail" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-            
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-				
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="CanUsed" >启用</label></div>
-            
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Name">Name</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="Name" id="Name" value="" maxlength="100"
+                               placeholder="Input name">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="PhoneNumber">Phonenumber</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="PhoneNumber" id="PhoneNumber" value=""
+                               maxlength="110" placeholder="Input phone">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WechatNickname">INS</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="WechatNickname" id="WechatNickname" value=""
+                               maxlength="200" placeholder="Input INS">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="WeChatAvatarPicture">Picture</label>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="file" class="form-control" name="WeChatAvatarPicture" id="WeChatAvatarPicture"
+                               maxlength="1500" placeholder="Input picture"/>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Password">Password</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="Password" id="Password" value="" maxlength="200"
+                               placeholder="Input password">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="contaier">
+                <div class="row">
+
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Email">E-mail</label></div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
+                        <input type="text" class="form-control" name="Email" id="Email" value="" maxlength="500"
+                               placeholder="Input E-mail">
+                    </div>
+
+
+                </div>
+            </div>
+
+           <div class ="contaier">
+               <div class ="row">
+                   <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Gender" >Gender</label></div>
              <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                  <select class="form-control"   name="CanUsed" id = "CanUsed">
-                    
-                    
-            <option  value="2"  {% if  '2' == member.CanUsed %} selected {% endif %} >使用</option>
-            
-            <option  value="3"  {% if  '3' == member.CanUsed %} selected {% endif %} >禁用</option>
-            
-                </select> 
+                 <select class="form-control"   name="Gender" id = "Gender">
+            <option  value="2"  {% if  '2' == member.Gender %} selected {% endif %} >Male</option>
+            <option  value="3"  {% if  '3' == member.Gender %} selected {% endif %} >Female</option>
+                </select>
              </div>
-			
-    
-                                                         </div>
-                                                                   </div>
-        
-            
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="NameSurname" >姓名</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="NameSurname" id="NameSurname"  value=""  maxlength = "200" placeholder="请输入姓名" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-            
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-				
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Gender" >性别</label></div>
-            
-             <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                  <select class="form-control"   name="Gender" id = "Gender">
-                    
-                    
-            <option  value="2"  {% if  '2' == member.Gender %} selected {% endif %} >男</option>
-            
-            <option  value="3"  {% if  '3' == member.Gender %} selected {% endif %} >女</option>
-            
-                </select> 
-             </div>
-			
-    
-                                                         </div>
-                                                                   </div>
-        
-            
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Telephone" >电话</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Telephone" id="Telephone"  value=""  maxlength = "200" placeholder="请输入电话" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Area" >地区</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <input type="text" class="form-control"   name="Area" id="Area"  value=""  maxlength = "500" placeholder="请输入地区" >
-                                                                    </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                    
-            
-                                                        
-    
-                                                        <div class ="contaier">
-                                                                 <div class ="row">
-        
-                                                			         
-                    <div class = "col-xl-2 col-lg-3 col-md-4 col-sm-6"><label for="Introduction" >简介</label></div>
-            
-                                                                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                                                                        <textarea type="text" class="form-control"   name="Introduction" id="Introduction"  style="resize:none" maxlength = "5000" placeholder="请输入简介" ></textarea>
-                                                                     </div>
-                                                		
-    
-                                                         </div>
-                                                                   </div>
-                   
-                                        
-            
+
+               </div>
+           </div>
+
         </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-	
-                    <button class="btn btn-primary" type="button" onclick="saveCurData('/ImageRecommendationSystem/admin/Member/save_add/')" id ="postData">确认</button>
-                
+
+                <button class="btn btn-primary" type="button"
+                        onclick="saveCurData('/ImageRecommendationSystem/admin/Member/save_add/')" id="postData">Sure
+                </button>
+
             </div>
         </div>
     </form>
 </div>
 
-<script type="text/javascript" >
+<script type="text/javascript">
 var checkObjectList = []
 
 var checkInfo =  new CheckInfo("Name","名称","",100,false,"");
@@ -309,6 +184,7 @@ checkObjectList.push(checkInfo)
 var checkInfo =  new CheckInfo("Introduction","简介","",5000,true,"");
 checkObjectList.push(checkInfo)           
             
+
 
 </script>
 {% endblock%}
